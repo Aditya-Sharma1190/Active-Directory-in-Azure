@@ -15,7 +15,7 @@ implementation of on-premises Active Directory within Azure Virtual Machines.<br
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (22H2)
+- Windows 10 Pro (22H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
@@ -35,35 +35,67 @@ Create a Resource Group AD-LAB in Azure Subscription<br />
 
 ![image](https://github.com/user-attachments/assets/ee6ea044-82fd-4e16-acc0-9fba6bd92600)
 
-Create a Virtual Network and Subnet in Azure Subscription<br />
+Create a Virtual Network Active_Directory_VNET and Subnet in Azure Subscription<br />
 
+![image](https://github.com/user-attachments/assets/d7a6d04d-d8d0-4b26-86e4-d2f31a829a4f)
 
-Create the Domain Controller VM (Windows Server 2022) named “DC-1”
+Create the Domain Controller VM (Windows Server 2022) named “DC”, For resource group choose AD-LAB
 ● Username: labuser
-● Password: Cyberlab1234
-After VM is created, set Domain Controller’s NIC Private IP address to be static, so that it remains permanent and does not change as the VM is rebooted 
-Log into the VM and disable the Windows Firewall (for testing connectivity)
+● Password: Cyberuser1234
+
+![image](https://github.com/user-attachments/assets/ca34fcd1-7802-4428-a40b-fa6c41742a4c)
+
+![image](https://github.com/user-attachments/assets/4b652c84-b2ba-47dd-8f80-64119b1c5967)
+
+![image](https://github.com/user-attachments/assets/a0c21344-4b01-4517-aa06-a5e57f09f51e)
+
+
+Create the Client VM (Windows 10 Pro (22H2)) named “Client”, For resource group choose AD-LAB
+● Username: labuser
+● Password: Cyberuser1234
+
+![image](https://github.com/user-attachments/assets/1c619ebe-2552-49fd-9325-f8c175834482)
+
+![image](https://github.com/user-attachments/assets/150176d9-178d-4732-acfa-d51bb393d897)
+
+![image](https://github.com/user-attachments/assets/abe2da51-632a-4b44-80c1-33d863192e71)
+
+![image](https://github.com/user-attachments/assets/56adc63e-eb23-487c-aa38-0f037eafd15e)
+
+After VM are created, set Domain Controller’s(DC VM) NIC Private IP address to be static, so that it remains permanent and does not change as the VM is rebooted <br />
+As, the Private IP for DC will be used by Client VM as it's DNS<br />
+
+![image](https://github.com/user-attachments/assets/08a69e8c-fd9f-49eb-ac77-4ea5c6dca9f5)
+
+Log into the DC VM and disable the Windows Firewall (for testing connectivity)
+
+![image](https://github.com/user-attachments/assets/f404886b-2e20-4b5e-9361-8c43224bb7e9)
+
+![image](https://github.com/user-attachments/assets/de43ba60-c094-48cd-b623-2788e3bd15ff)
+
+Next, as we want our Client VM to join our Domain : mydomain.com , we will change the network settings of Client VM and in DNS we will paste the Private IP of the DC VM . Since to resolve mydomain.com Client VM needs the Private IP of the DC VM that is hosting the Domain mydomain.com
+
+![image](https://github.com/user-attachments/assets/71be74c6-99e5-4744-84e2-31f01181b50d)
+
+Next to test connectivity login to Client VM and ping the Private IP of DC VM, It should ping
+
+![image](https://github.com/user-attachments/assets/14f8cd6c-4b3b-48ed-9997-211bd5e6bf44)
+
+![image](https://github.com/user-attachments/assets/fbab6602-0c6d-42ea-97d9-3fd7f94d4a9b)
 
 
 
 
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+
+
+
+
+
+
+
+
+
+
