@@ -2,13 +2,8 @@
 <img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
 </p>
 
-<h1>On-premises Active Directory Deployed in the Cloud (Azure)</h1>
-This tutorial outlines the implementation of on-premises Active Directory within Azure Virtual Machines.<br />
-
-
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How to Deploy on-premises Active Directory within Azure Compute](https://www.youtube.com)
+<h1>Active Directory Deployment in the Cloud (Azure)</h1>
+implementation of on-premises Active Directory within Azure Virtual Machines.<br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -20,14 +15,18 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Operating Systems Used </h2>
 
 - Windows Server 2022
-- Windows 10 (21H2)
+- Windows 10 (22H2)
 
 <h2>High-Level Deployment and Configuration Steps</h2>
 
-- Step 1
-- Step 2
-- Step 3
-- Step 4
+![image](https://github.com/user-attachments/assets/06a8dcf8-c145-4f5d-9cad-f1f72df3812a)
+
+
+- we will need two VMs , one running windows server 2022 image which will be our DC (Domain Controller),DNS Server and will 
+  host our domain. Other Virtual Machine will act as a client machine. 
+- Next we will join Client machine to our domain. 
+- Using Windows PowerShell , we will create users in our Domain Controller and we will login as one of those users on our 
+  client machine.
 
 <h2>Deployment and Configuration Steps</h2>
 
