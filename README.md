@@ -83,6 +83,48 @@ Next to test connectivity login to Client VM and ping the Private IP of DC VM, I
 
 ![image](https://github.com/user-attachments/assets/fbab6602-0c6d-42ea-97d9-3fd7f94d4a9b)
 
+<h2>Deploying Active Directory</h2>
+
+Connect to DC VM using RDP , In server manager >> Add roles and features >> Select Active Directory Domain Services 
+
+![image](https://github.com/user-attachments/assets/b4261277-8138-48b0-90f2-1c4330720ac0)
+
+![image](https://github.com/user-attachments/assets/8596750c-57a9-4bdc-9db1-c84645f4015a)
+
+Next , we want to promote DC VM as a Domain controller to host mydomain.com . In DC VM open Server Manager , click on notifications in the top right corner >> promote this server to a Domain Controller 
+
+![image](https://github.com/user-attachments/assets/4ed7fa81-a7d7-48ef-a2e3-8e9a54de7e56)
+
+![image](https://github.com/user-attachments/assets/8894ff79-39ae-481e-b5e6-67a3e9f42bb7)
+
+![image](https://github.com/user-attachments/assets/7d28e896-ee7a-42b7-8856-365b971dea4f)
+
+![image](https://github.com/user-attachments/assets/5de17d59-beec-492e-bf3d-b25d691efdff)
+
+The RDP session will terminate as the VM will restart , since DC VM is a domain controller now , in order to RDP we will have to provide context <br />
+
+username : mydomain.com\labuser<br />
+password : Cyberuser1234<br />
+
+<h2>Create a domain admin user </h2>
+
+Connect to DC VM using RDP<br />
+username : mydomain.com\labuser<br />
+password : Cyberuser1234<br />
+
+In Windows Administrative tools >> Active Directory Users and Computers 
+
+![image](https://github.com/user-attachments/assets/dab4ac33-5f45-42b4-8cfb-704af30a50df)
+
+We will create a new Organizational Unit _EMPLOYEES ( can be anything , devices, group, users. Used for organizing)
+
+
+
+
+
+
+
+
 
 
 
