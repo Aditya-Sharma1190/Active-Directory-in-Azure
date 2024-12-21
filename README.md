@@ -118,6 +118,62 @@ In Windows Administrative tools >> Active Directory Users and Computers
 
 We will create a new Organizational Unit _EMPLOYEES ( can be anything , devices, group, users. Used for organizing)
 
+Next , we will create another OU(organizational Unit) _ADMINS. Create a user Aditya Sharma <br />
+username - adiadmin  <br />
+password - Cyberuser1234<br />
+
+![image](https://github.com/user-attachments/assets/83974f1d-65cb-4271-bbb4-ace91b5d61ce)
+
+This account is not a admin yet , we will have to make this account member of domain admins 
+
+![image](https://github.com/user-attachments/assets/fe4baaa1-8073-4518-bfe1-6259fe1b8e01)
+
+Next we can log out of DC VM and relogin using <br />
+username - mydomain.com\adiadmin  <br />
+password - Cyberuser1234<br />
+
+![image](https://github.com/user-attachments/assets/06eda647-0d78-41d8-bc12-50a221a4f3f6)
+
+<h2>Joining the Client VM to mydomain.com</h2>
+
+RDP to Client VM <br />
+username - labuser <br />
+password - Cyberuser1234<br />
+
+
+Next, in Client VM >> system >> Rename this PC (advanced)
+
+![image](https://github.com/user-attachments/assets/c3c2bb4c-03ae-4066-b592-c4698dfb6e80)
+
+![image](https://github.com/user-attachments/assets/fcd85149-c459-4697-ba96-5942708c11a7)
+
+![image](https://github.com/user-attachments/assets/f52b9834-58a7-4b62-9144-8dff627091f2)
+
+![image](https://github.com/user-attachments/assets/2c4e52fd-a24c-401c-a9b2-6db8e5146d51)
+
+Next, Restart Client VM<br />
+
+In DC VM , we should be able to see Client vm listed in Computers under Active Directory Users and Computers
+
+![image](https://github.com/user-attachments/assets/198e8cad-ba5a-40a5-a0e8-ed9acbcc75f8)
+
+Create a new OU _CLIENTS and drag and drop Client VM in this new OU
+
+![image](https://github.com/user-attachments/assets/fce3504f-0eb9-4129-8e44-8afe799eeb53)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
